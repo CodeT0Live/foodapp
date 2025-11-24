@@ -1,0 +1,10 @@
+<toolchains>
+    <toolchain>
+        <provides>
+            <version>21</version>
+        </provides>
+        <configuration>
+            <jdkHome>${env.HOME}/.sdkman/candidates/java/current</jdkHome>
+        </configuration>
+    </toolchain>
+</toolchains>
