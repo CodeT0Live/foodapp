@@ -1,7 +1,8 @@
 package org.foodapp.services;
 
 import org.foodapp.models.Address;
-import  org.foodapp.models.Resturant;
+import org.foodapp.models.Resturant;
+import org.foodapp.services.RestaurantService;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;

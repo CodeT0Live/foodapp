@@ -25,7 +25,31 @@ public class OrderService {
     }
 
     public boolean UpdateCartItem(long orderId , List<FoodItems> updateItems){
-        return  false;
+
+        List<FoodItems> cartItems = orderCart.get(orderId);
+
+        if(cartItems.isEmpty()){
+            this.orderCart.put(orderId, updateItems);
+            return  true;
+        }
+
+        List<FoodItems> mergedResult = mergeCartItems(cartItems, updateItems);
+
+        this.orderCart.put(orderId, mergedResult);
+        return  true;
+    }
+
+    private List<FoodItems> mergeCartItems(List<FoodItems> existing, List<FoodItems>  updated){
+        Map<Integer, FoodItems> map = new HashMap<>();
+
+        for(FoodItems item : existing){
+            map.put(item.getId(), item);
+        }
+
+        for(FoodItems item : updated){
+            map.put(item.getId(), item);
+        }
+        return  new ArrayList<>(map.values());
     }
 
 
